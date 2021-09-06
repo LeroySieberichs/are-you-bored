@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "paths": {
-      "@components/*": ["Components/*"],
-      "@images/*":["Images/*"],
-    },
     "target": "es5",
     "lib": [
       "dom",
