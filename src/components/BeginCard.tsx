@@ -1,5 +1,5 @@
-import { Flex, Image, useColorModeValue, Box, chakra, Stack, Link, Button } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { Flex, useColorModeValue, Box, chakra,  Link, Button } from '@chakra-ui/react'
+import React from 'react'
 
 export default function BeginCard(props) {
 
@@ -8,7 +8,7 @@ export default function BeginCard(props) {
         <div>
            
            <Box
-           className={props.NextItem ? 'animate__animated animate__lightSpeedOutLeft': ''}
+           className={props.NextItem ? 'animate__animated': ''}
         mx="auto"
         px={8}
         py={4}
