@@ -11,6 +11,19 @@ function Home() {
     setActive('');
     
   };
+
+  const startDistractions = () => {
+    setActive('pee');
+    
+  }
+
+  const renderBeginCard = () => {
+    if(isActive === 'start'){
+      return <BeginCard NextItem = {isActive}></BeginCard>
+    } else {
+      return(<DummyRefresh />) 
+    }
+  }
   
   return (
     <div>
@@ -18,11 +31,13 @@ function Home() {
         Toggle {colorMode === "light" ? "Dark" : "Light"}
       </Button>
 
-      <BeginCard NextItem = {isActive}></BeginCard>
-      <Button onClick={toggleClass} colorScheme="teal" size="lg">
+      
+      {renderBeginCard()}
+      
+      <Button onClick={startDistractions} colorScheme="teal" size="lg">
     Yes
   </Button>
-  <DummyRefresh />
+  
     </div>
   )
 }

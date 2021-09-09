@@ -8,7 +8,7 @@ export default function BeginCard(props) {
         <div>
            
            <Box
-           className={props.NextItem ? 'animate__animated': ''}
+           className={props.NextItem == 'start' ? 'animate__animated animate__lightSpeedInRight': 'animate__animated animate__rotateOutDownLeft'}
         mx="auto"
         px={8}
         py={4}

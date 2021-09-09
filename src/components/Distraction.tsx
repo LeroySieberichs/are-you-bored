@@ -14,7 +14,8 @@ export default function Distraction(props) {
       
       
       <div>
-        {distractionList[1].name}
+        {console.log(distractionList)
+        }
         {props.data[0].name}
       </div>
 
