@@ -1,14 +1,14 @@
-import { Flex, useColorModeValue, Box, chakra,  Link, Button } from '@chakra-ui/react'
+import { Flex, useColorModeValue, Box, chakra, Link, Button } from '@chakra-ui/react'
 import React from 'react'
 
-export default function BeginCard(props) {
+export default function BeginCard(props: { NextItem: number }) {
 
-  
-    return (
-        <div>
-           
-           <Box
-           className={props.NextItem == 'start' ? 'animate__animated animate__lightSpeedInRight': 'animate__animated animate__rotateOutDownLeft'}
+
+  return (
+    <div>
+
+      <Box
+        className={props.NextItem === -1 ? 'animate__animated animate__lightSpeedInRight' : 'animate__animated animate__rotateOutDownLeft'}
         mx="auto"
         px={8}
         py={4}
@@ -19,9 +19,9 @@ export default function BeginCard(props) {
       >
 
 
-        <Box mt={2}align="center">
+        <Box mt={2} align="center">
           <Link
-            
+
             fontSize="2xl"
             color={useColorModeValue("gray.700", "white")}
             fontWeight="700"
@@ -38,16 +38,16 @@ export default function BeginCard(props) {
         </Box>
 
         <Flex justifyContent="space-evenly" alignItems="center" mt={4}>
-        
+
 
           <Flex alignItems="center">
 
-        <Button colorScheme="teal" size="lg">
-    No
-  </Button>
+            <Button colorScheme="teal" size="lg">
+              No
+            </Button>
           </Flex>
         </Flex>
       </Box>
-        </div>
-    )
+    </div>
+  )
 }
