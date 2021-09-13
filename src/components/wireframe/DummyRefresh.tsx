@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useCollectionDataOnce  } from 'react-firebase-hooks/firestore';
 import Distraction from '../Distraction'
 import { Box, chakra, Flex, useColorModeValue, Image, useColorMode, Button } from "@chakra-ui/react";
+import '../../style/card.css'
+
 
 export default function DummyRefresh() {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -31,7 +33,7 @@ export default function DummyRefresh() {
         
 
         const distractionCard = (data: { name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; description: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; image: string | undefined; }) =>(
-          <Box className="animate__animated animate__lightSpeedInRight"
+          <Box className="inactive"
         maxW="xs"
         mx="auto"
         bg={colorMode}
