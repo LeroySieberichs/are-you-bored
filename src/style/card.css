@@ -4,4 +4,9 @@
 }
 .active {
     visibility: visible;
+    position: absolute;
+}
+
+.outer{
+    position: relative;
 }

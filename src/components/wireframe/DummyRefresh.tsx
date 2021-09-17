@@ -34,19 +34,22 @@ export default function DummyRefresh(props: { NextItem: any; }) {
 
 
     })
-
+    
     return itemlist;
   }
 
   const skeleton = () => {
-    <Box padding="6" boxShadow="lg" bg="white">
+    return(
+      <Box padding="6" boxShadow="lg" bg="white">
       <SkeletonCircle size="10" />
       <SkeletonText mt="4" noOfLines={4} spacing="4" />
     </Box>
+    )
+    
   }
 
   const distractionCard = (data: { name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; description: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; image: string | undefined; id: any }) => (
-    <Box className={props.NextItem == data.id ? 'animate__animated animate__rotateOutDownLeft inactive' : 'animate__animated animate__lightSpeedInRight'}
+    <Box className={props.NextItem == data.id ? 'animate__animated animate__lightSpeedInRight' :props.NextItem > data.id ? 'animate__animated animate__lightSpeedOutLeft' : 'inactive'}
       key={data.id}
       maxW="xs"
       mx="auto"
@@ -54,6 +57,8 @@ export default function DummyRefresh(props: { NextItem: any; }) {
       shadow="lg"
       rounded="lg"
     >
+      {props.NextItem}
+      {data.id}
       <Box px={4} py={2}>
         <chakra.h1
           color={colorMode}
@@ -116,7 +121,7 @@ export default function DummyRefresh(props: { NextItem: any; }) {
   )
 
   return (
-    <div>
+    <div className = "outer">
 
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
       {loading && skeleton()}
