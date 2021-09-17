@@ -6,7 +6,6 @@ export default function BeginCard(props: { NextItem: number }) {
 
   return (
     <div>
-
       <Box
         className={props.NextItem === -1 ? 'animate__animated animate__lightSpeedInRight' : 'animate__animated animate__rotateOutDownLeft'}
         mx="auto"
@@ -17,8 +16,6 @@ export default function BeginCard(props: { NextItem: number }) {
         bg={useColorModeValue("white", "gray.900")}
         maxW="2xl"
       >
-
-
         <Box mt={2} align="center">
           <Link
 
@@ -36,15 +33,8 @@ export default function BeginCard(props: { NextItem: number }) {
             Are you bored?
           </chakra.p>
         </Box>
-
         <Flex justifyContent="space-evenly" alignItems="center" mt={4}>
-
-
           <Flex alignItems="center">
-
-            <Button colorScheme="teal" size="lg">
-              No
-            </Button>
           </Flex>
         </Flex>
       </Box>

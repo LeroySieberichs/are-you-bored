@@ -4,7 +4,11 @@
 }
 .active {
     visibility: visible;
+}
+
+.distraction{
     position: absolute;
+    top: 0;
 }
 
 .outer{

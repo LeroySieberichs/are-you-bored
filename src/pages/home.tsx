@@ -1,4 +1,4 @@
-import { Stack, Button, useColorMode, Box } from '@chakra-ui/react'
+import { Stack, Button, useColorMode, Box, ButtonGroup } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import BeginCard from '../components/BeginCard'
 import DummyRefresh from '../components/wireframe/DummyRefresh'
@@ -7,10 +7,12 @@ import DummyRefresh from '../components/wireframe/DummyRefresh'
 function Home() {
   const { colorMode, toggleColorMode } = useColorMode()
   const [isActive, setActive] = useState(-1);
+  const [accepted, setAccepted] = useState(false);
 
   useEffect(() => {
     renderBeginCard()
-    if (isActive === 11){
+
+    if (isActive === 11) {
       setActive(0)
     }
   }, [isActive])
@@ -20,15 +22,39 @@ function Home() {
 
   }
 
+  const endDistractions = () => {
+    setAccepted(true);
+
+  }
+
+  const whyAreouEvenHere = () => {
+    window.location.href = "https://ikwilhierweg.nl/"
+  }
+
   const actionbuttons = () => {
     if (isActive === -1) {
-      return <Button onClick={startDistractions} colorScheme="teal" size="lg">
-      Yes
-    </Button>
+      return (
+        <ButtonGroup spacing="450">
+          <Button onClick={startDistractions} colorScheme="teal" size="lg">
+            Yes
+          </Button>
+          <Button onClick={whyAreouEvenHere} colorScheme="teal" size="lg">
+            No
+          </Button>
+        </ButtonGroup>
+
+      )
     } else {
-      return (<Button className="animate__animated animate__lightSpeedInRight" onClick={startDistractions} colorScheme="teal" size="lg">
-      no
-    </Button>)
+      return (
+        <ButtonGroup spacing="450">
+          <Button className="animate__animated animate__lightSpeedInLeft" onClick={startDistractions} colorScheme="teal" size="lg">
+            No
+          </Button>
+          <Button className="animate__animated animate__lightSpeedInRight" onClick={endDistractions} colorScheme="teal" size="lg">
+            Yes
+          </Button>
+        </ButtonGroup>
+      )
     }
   }
 
@@ -36,7 +62,7 @@ function Home() {
     if (isActive === -1) {
       return <BeginCard NextItem={isActive}></BeginCard>
     } else {
-      return (<DummyRefresh NextItem={isActive} />)
+      return (<DummyRefresh NextItem={isActive} EndDistractions={accepted} />)
     }
   }
 
@@ -53,11 +79,11 @@ function Home() {
         py={4}
         rounded="lg"
         shadow="lg"
-        
+
         maxW="2xl">
-      <Stack direction="row" spacing={4} align="center">
-      {actionbuttons()}
-      </Stack>
+        <Stack direction="row" spacing={4} align="center">
+          {actionbuttons()}
+        </Stack>
       </Box>
 
     </div>
